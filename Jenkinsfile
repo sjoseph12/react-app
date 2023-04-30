@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     app = docker.build("pjsunil/react-app")
-                    app.inside {
+                    app.inside("--entrypoint=''") {
                         sh 'echo $(curl localhost:1233)'
                     }
                 }
